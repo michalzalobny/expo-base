@@ -2,8 +2,8 @@ import { RouteProp } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 export type RootStackParamList = {
-  home: undefined;
-  login: undefined;
+  HomeStack: undefined;
+  Login: undefined;
 };
 
 export type RootStackNavigationProps<T extends keyof RootStackParamList> = {
