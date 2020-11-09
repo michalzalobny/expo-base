@@ -16,3 +16,4 @@ node_modules
 dist
 .env
 debug.log
+yarn-error.log
