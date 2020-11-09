@@ -35,7 +35,6 @@ export const CustomBottomNav = React.memo<CustomBottomNavProps>((props) => {
       navigate(initialRouteName);
     }
     tabItems.forEach((tab) => {
-      console.log(tab.name, focusRoute);
       if (tab.name === focusRoute) {
         setCurrentStack(focusRoute);
       }
