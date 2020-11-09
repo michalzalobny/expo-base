@@ -12,7 +12,7 @@ interface FollowingScreenProps {}
 export const FollowingScreen = React.memo<FollowingScreenProps>((props) => {
   const navigation = useNavigation();
 
-  const INITIAL_SCALE_ANIM = 0.8;
+  const INITIAL_SCALE_ANIM = 0.9;
   const FINAL_SCALE_ANIM = 1;
   const scaleAnim = useRef(new Animated.Value(INITIAL_SCALE_ANIM)).current;
 
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end",
   },
   wrapper: {
-    backgroundColor: "red",
+    backgroundColor: "grey",
     flex: 1,
     width: "100%",
     display: "flex",

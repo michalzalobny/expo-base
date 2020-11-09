@@ -2,7 +2,7 @@ import { StackCardInterpolationProps } from "@react-navigation/stack";
 import { TransitionSpec } from "@react-navigation/stack/lib/typescript/src/types";
 
 export const forFadeConfig = {
-  completeDuration: 350,
+  completeDuration: 300,
 };
 
 type ForFadeTransitionSpecs = {
@@ -28,11 +28,9 @@ export const forFadeTransitionSpec: ForFadeTransitionSpecs = {
 
 export const forFadeSpringConfig = {
   useNativeDriver: true,
-  stiffness: 1500,
+  stiffness: 1800,
   damping: 100,
-  mass: 3,
-  restDisplacementThreshold: 0.01,
-  restSpeedThreshold: 0.01,
+  mass: 5,
 };
 
 export const forFade = ({

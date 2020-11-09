@@ -32,7 +32,7 @@ export const HomeStack = React.memo<HomeStackProps>((props) => {
         <Ionicons {...iconProps} name="md-people" />
       ),
       options: {
-        headerShown: false,
+        headerShown: true,
         animationEnabled: true,
         cardStyleInterpolator: forFade,
         title: "Discover",
