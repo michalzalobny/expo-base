@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View } from "react-native";
 import { Button } from "react-native-paper";
-import { ParamListBase, RouteProp } from "@react-navigation/native";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import {
   createStackNavigator,
   StackNavigationOptions,
@@ -12,7 +12,6 @@ import { IconSource } from "react-native-paper/lib/typescript/src/components/Ico
 
 interface CustomBottomNavProps {
   tabItems: TabItem[];
-  parentRoute: RouteProp<ParamListBase, keyof ParamListBase>;
   initialRouteName: string;
 }
 
@@ -24,27 +23,24 @@ export interface TabItem {
 }
 
 export const CustomBottomNav = React.memo<CustomBottomNavProps>((props) => {
-  const { tabItems, parentRoute, initialRouteName } = props;
+  const { tabItems, initialRouteName } = props;
   const { navigate } = useNavigation();
   const route = useRoute();
-  const [currentStack, setCurrentStack] = useState(null);
+  const focusRoute = getFocusedRouteNameFromRoute(route);
+  const [currentStack, setCurrentStack] = useState(focusRoute);
   const Stack = createStackNavigator();
 
   useEffect(() => {
-    // @ts-ignore
-    if (parentRoute.state === undefined) {
+    if (focusRoute === undefined) {
       navigate(initialRouteName);
-    } else {
-      // @ts-ignore
-      const nestedRoutes = route.state.routes;
-      const clickedStack = nestedRoutes[nestedRoutes.length - 1].name;
-      tabItems.forEach((tab) => {
-        if (tab.name === clickedStack) {
-          setCurrentStack(clickedStack);
-        }
-      });
     }
-  }, [parentRoute]);
+    tabItems.forEach((tab) => {
+      console.log(tab.name, focusRoute);
+      if (tab.name === focusRoute) {
+        setCurrentStack(focusRoute);
+      }
+    });
+  }, [focusRoute]);
 
   const stackTabs = tabItems.map((tab) => {
     return (

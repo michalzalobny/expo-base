@@ -1,4 +1,3 @@
-import { ParamListBase, RouteProp } from "@react-navigation/native";
 import React from "react";
 
 import {
@@ -14,13 +13,9 @@ import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 import { IconProps } from "react-native-paper/lib/typescript/src/components/MaterialCommunityIcon";
 
-interface HomeStackProps {
-  route: RouteProp<ParamListBase, keyof ParamListBase>;
-}
+interface HomeStackProps {}
 
 export const HomeStack = React.memo<HomeStackProps>((props) => {
-  const { route } = props;
-
   const tabItems: TabItem[] = [
     {
       name: "following",
@@ -67,11 +62,7 @@ export const HomeStack = React.memo<HomeStackProps>((props) => {
   ];
   return (
     <>
-      <CustomBottomNav
-        initialRouteName="discover"
-        parentRoute={route}
-        tabItems={tabItems}
-      />
+      <CustomBottomNav initialRouteName="discover" tabItems={tabItems} />
     </>
   );
 });
