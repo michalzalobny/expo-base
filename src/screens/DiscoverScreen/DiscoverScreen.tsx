@@ -1,6 +1,5 @@
-import { View, StyleSheet, Animated, Text } from "react-native";
+import { Animated, Text } from "react-native";
 import React, { useRef } from "react";
-import { Button } from "react-native-paper";
 import { useNavigation } from "@react-navigation/native";
 
 import {
@@ -13,7 +12,7 @@ interface DiscoverScreenProps {}
 export const DiscoverScreen = React.memo<DiscoverScreenProps>((props) => {
   const navigation = useNavigation();
 
-  const INITIAL_SCALE_ANIM = 0.5;
+  const INITIAL_SCALE_ANIM = 0.8;
   const FINAL_SCALE_ANIM = 1;
   const scaleAnim = useRef(new Animated.Value(INITIAL_SCALE_ANIM)).current;
 

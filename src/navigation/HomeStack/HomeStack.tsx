@@ -6,6 +6,7 @@ import {
 } from "components/CustomBottomNav/CustomBottomNav";
 
 import { DiscoverScreen } from "screens/DiscoverScreen/DiscoverScreen";
+import { LoginScreen } from "screens/LoginScreen/LoginScreen";
 import { forFade, forFadeTransitionSpec } from "../animations/forFade";
 
 import { AntDesign } from "@expo/vector-icons";
@@ -33,7 +34,7 @@ export const HomeStack = React.memo<HomeStackProps>((props) => {
     },
     {
       name: "settings",
-      component: DiscoverScreen,
+      component: LoginScreen,
       buttonIcon: (iconProps: IconProps) => (
         <AntDesign {...iconProps} name="find" />
       ),

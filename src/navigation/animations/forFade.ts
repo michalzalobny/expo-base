@@ -1,10 +1,8 @@
 import { StackCardInterpolationProps } from "@react-navigation/stack";
 import { TransitionSpec } from "@react-navigation/stack/lib/typescript/src/types";
-import { Easing } from "react-native";
 
 export const forFadeConfig = {
-  completeDuration: 1000,
-  // secondPartDuration: 500,
+  completeDuration: 350,
 };
 
 type ForFadeTransitionSpecs = {
@@ -17,7 +15,6 @@ export const forFadeTransitionSpec: ForFadeTransitionSpecs = {
     animation: "timing",
     config: {
       duration: forFadeConfig.completeDuration,
-      easing: Easing.ease,
     },
   },
   close: {
@@ -25,7 +22,6 @@ export const forFadeTransitionSpec: ForFadeTransitionSpecs = {
     config: {
       duration: forFadeConfig.completeDuration,
       delay: forFadeConfig.completeDuration / 2,
-      easing: Easing.ease,
     },
   },
 };
@@ -46,7 +42,7 @@ export const forFade = ({
   layouts: { screen },
 }: StackCardInterpolationProps) => {
   const fadeOut = current.progress.interpolate({
-    inputRange: [0, 0.5, 1],
+    inputRange: [0, 0.5, 1], //change 0.5 for smoother animation (earlier opacity change)
     outputRange: [0, 0, 1],
     extrapolate: "clamp",
   });
