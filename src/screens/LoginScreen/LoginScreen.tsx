@@ -1,39 +1,11 @@
 import { View, StyleSheet, Animated } from "react-native";
 import React, { useRef } from "react";
 import { Button } from "react-native-paper";
-import { useNavigation } from "@react-navigation/native";
-
-import { forFadeConfig } from "navigation/animations/forFade";
 
 interface LoginScreenProps {}
 
 export const LoginScreen = React.memo<LoginScreenProps>((props) => {
-  const navigation = useNavigation();
-
   const scaleAnim = useRef(new Animated.Value(0.5)).current;
-
-  React.useEffect(() => {
-    const unsubscribe = navigation.addListener("blur", () => {
-      Animated.timing(scaleAnim, {
-        toValue: 0.5,
-        duration: forFadeConfig.secondPartDuration,
-        useNativeDriver: true,
-      }).start();
-    });
-    return unsubscribe;
-  }, [navigation]);
-
-  React.useEffect(() => {
-    const unsubscribe = navigation.addListener("focus", () => {
-      Animated.timing(scaleAnim, {
-        toValue: 1,
-        duration: forFadeConfig.secondPartDuration,
-        delay: forFadeConfig.secondPartDuration,
-        useNativeDriver: true,
-      }).start();
-    });
-    return unsubscribe;
-  }, [navigation]);
 
   return (
     <Animated.View

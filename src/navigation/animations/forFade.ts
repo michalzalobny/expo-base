@@ -3,8 +3,8 @@ import { TransitionSpec } from "@react-navigation/stack/lib/typescript/src/types
 import { Easing } from "react-native";
 
 export const forFadeConfig = {
-  completeDuration: 300,
-  secondPartDuration: 200,
+  completeDuration: 1000,
+  // secondPartDuration: 500,
 };
 
 type ForFadeTransitionSpecs = {
